@@ -1,11 +1,22 @@
 use HotelManagementServer
 go
-
---validation on Database objects are missing
+ 
+If (exists (select* from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'Booking'))
+begin
 delete from Booking
+end
+If (exists (select* from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'Guest'))
+begin
 delete from Guest
+end
+If (exists (select* from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'Room'))
+begin
 delete from Room
+end
+If (exists (select* from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'Status'))
+begin
 delete from Status
+end
 
 SET IDENTITY_INSERT Room ON
 insert into Room(RoomId,RoomNumber) values(1,'A101') 
