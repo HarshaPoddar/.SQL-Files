@@ -1,10 +1,12 @@
 use HotelManagementServer
 go
+
+--validation on Database objects are missing
 delete from Booking
 delete from Guest
 delete from Room
 delete from Status
-/*
+
 SET IDENTITY_INSERT Room ON
 insert into Room(RoomId,RoomNumber) values(1,'A101') 
 insert into Room(RoomId,RoomNumber) values(2,'B101') 
@@ -67,5 +69,5 @@ select*from Status
 select*from Booking
 select*from Guest
 select*from Room
-*/
+
 
